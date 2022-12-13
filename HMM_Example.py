@@ -19,7 +19,7 @@ tran_matrix_as_dic = {
 observations = ["red", "red", "black", "red"]
 
 
-## Executing the calculations 
+# Executing the calculations
 if __name__ == "__main__":
 
     fixed_vector = find_fixed_vector(tran_matrix)
@@ -34,17 +34,6 @@ if __name__ == "__main__":
 
     print("We observe the sequence red, red, black, red. What is the most likely sequence of states?\n")
 
-    seq = viterbi(tran_matrix_as_dic, colors_prob, observations, states, steady_state_prob)
+    seq = viterbi(tran_matrix_as_dic, colors_prob,
+                  observations, states, steady_state_prob)
     print(f"The most likely sequence is {seq}.")
-
-
-
-
-
-
-
-
-
-    
-    
-

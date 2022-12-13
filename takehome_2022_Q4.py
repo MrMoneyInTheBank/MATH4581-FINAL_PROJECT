@@ -1,4 +1,4 @@
-from functions import find_fixed_vector, find_steady_state_prob, which_state, viterbi
+from functions import find_fixed_vector, find_steady_state_prob, find_single_color_prob, which_state, viterbi
 
 colors_prob = {
     "A": {"red": 0.8, "black": 0.2},
@@ -12,7 +12,7 @@ tran_matrix = [
     [0.2, 0.3, 0.5],
     [0.2, 0.4, 0.4],
     [0.1, 0.6, 0.3]
-    ]
+]
 
 tran_matrix_as_dic = {
     "A": {"A": 0.2, "B": 0.3, "C": 0.5},
@@ -22,7 +22,7 @@ tran_matrix_as_dic = {
 
 observations = ["red", "black", "red"]
 
-## Executing the calculations 
+# Executing the calculations
 if __name__ == "__main__":
 
     fixed_vector = find_fixed_vector(tran_matrix)
@@ -37,5 +37,7 @@ if __name__ == "__main__":
 
     print("We observe the sequence red, red, black, red. What is the most likely sequence of states?\n")
 
-    seq = viterbi(tran_matrix_as_dic, colors_prob, observations, states, steady_state_prob)
+    seq = viterbi(tran_matrix_as_dic, colors_prob,
+                  observations, states, steady_state_prob)
+
     print(f"The most likely sequence is {seq}.")
