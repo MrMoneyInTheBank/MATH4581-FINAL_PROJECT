@@ -23,9 +23,9 @@ class TestViterbi(unittest.TestCase):
         fixed_vector_one = find_fixed_vector(tran_matrix_one)
         steady_state_prob_one = find_steady_state_prob(
             fixed_vector_one, states_one)
-        seq = viterbi(tran_matrix_as_dic_one, colors_prob_one,
+        seq_one = viterbi(tran_matrix_as_dic_one, colors_prob_one,
                       observations_one, states_one, steady_state_prob_one)
-        self.assertEqual(seq, ['A', 'A', 'A', 'A'])
+        self.assertEqual(seq_one, ['A', 'A', 'A', 'A'])
 
         # Takehome fall 2022 testcase
         colors_prob_two = {
@@ -83,3 +83,4 @@ class TestViterbi(unittest.TestCase):
         seq_three = viterbi(tran_matrix_as_dic_three, colors_prob_three,
                             observations_three, states_three, steady_state_prob_three)
         self.assertEqual(seq_three, ['A', 'C', 'B', 'B', 'B', 'D', 'A'])
+
