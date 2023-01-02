@@ -4,8 +4,7 @@ from functions import find_fixed_vector, find_steady_state_prob, which_state, vi
 
 class TestViterbi(unittest.TestCase):
 
-    def test_viterbi(self):
-
+    def test_viterbi_one(self):
         # HMM with pictures testcase
         colors_prob_one = {
             "A": {"red": 0.4, "black": 0.6},
@@ -27,6 +26,7 @@ class TestViterbi(unittest.TestCase):
                       observations_one, states_one, steady_state_prob_one)
         self.assertEqual(seq_one, ['A', 'A', 'A', 'A'])
 
+    def test_viterbi_two(self):
         # Takehome fall 2022 testcase
         colors_prob_two = {
             "A": {"red": 0.8, "black": 0.2},
@@ -52,9 +52,9 @@ class TestViterbi(unittest.TestCase):
         seq_two = viterbi(tran_matrix_as_dic_two, colors_prob_two,
                           observations_two, states_two, steady_state_prob_two)
         self.assertEqual(seq_two, ['B', 'C', 'B'])
-
+    
+    def test_viterbi_three(self):
         # Long HMM testcase
-
         colors_prob_three = {
             "A": {"red": 0.8, "black": 0.2},
             "B": {"red": 0.5, "black": 0.5},
@@ -83,4 +83,3 @@ class TestViterbi(unittest.TestCase):
         seq_three = viterbi(tran_matrix_as_dic_three, colors_prob_three,
                             observations_three, states_three, steady_state_prob_three)
         self.assertEqual(seq_three, ['A', 'C', 'B', 'B', 'B', 'D', 'A'])
-
